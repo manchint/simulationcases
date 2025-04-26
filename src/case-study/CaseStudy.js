@@ -50,7 +50,6 @@ const CaseStudy = ({details}) => {
             },
         ],
         });
-
         const blob = await Packer.toBlob(doc);
         saveAs(blob, "component.docx");
 
