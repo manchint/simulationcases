@@ -1,3 +1,24 @@
 .case-study-container {
     padding-left: 1rem;
 }
+
+.case-study-header-container {
+    display: flex;
+}
+
+.case-study-name {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    width: 80%;
+}
+
+.downlaod-btn {
+    background-color: #9b90e6;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}

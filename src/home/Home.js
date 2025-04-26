@@ -30,7 +30,10 @@ const Home = () => {
        //  console.log(chunkedItems)
     }
     const setCardCount = (val) => {
-        if (val > 1000) {
+        if (val > 1500) {
+            setCards(6)
+        }
+        else if (val > 1000) {
             setCards(4)
         }
         else if (val > 700) {
