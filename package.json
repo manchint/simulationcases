@@ -1,6 +1,5 @@
 {
   "name": "simulation-cases",
-  "homepage": "https://manchint.github.io/simulationcases",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
