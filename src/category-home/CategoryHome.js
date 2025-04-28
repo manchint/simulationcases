@@ -1,6 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import * as XLSX from 'xlsx';
 import CaseStudy from "../case-study/CaseStudy";
+import CaseStudySP from "../case-study-sp/CaseStudySP";
 import './CategoryHome.css'
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -22,16 +23,13 @@ const CategoryHome = () => {
             .then(res => res.arrayBuffer())
             .then(buffer => {
                 const workbook = XLSX.read(buffer, { type: 'array' });
-                const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                const sheet = workbook.Sheets[category];
                 const jsonData = XLSX.utils.sheet_to_json(sheet);
                 var temp = []
                 var caseStudiesList = []
                 jsonData.forEach((item) => {
-                    if (item['Category'] == category) {
-                        temp = [...temp, item]
-                        caseStudiesList = [...caseStudiesList, item['Sno']]
-                    }
-
+                    temp = [...temp, item]
+                    caseStudiesList = [...caseStudiesList, item['Sno']]
                 })
                 setCaseStudyByCategory(temp);
                 setCaseStudiesList(caseStudiesList);
@@ -55,7 +53,7 @@ const CategoryHome = () => {
 
 
     const goToHome = () => {
-        navigate('/')
+        navigate('/simulationcases')
     }
 
     return (
@@ -81,7 +79,13 @@ const CategoryHome = () => {
                 </ul>
             </nav>
             <div className="content">
-                <CaseStudy details={selectedData} />
+                {category == 'sp' ? (
+                    <CaseStudySP details={selectedData} />
+                ) :
+                (
+                    <CaseStudy details={selectedData} />
+                ) }
+                
             </div>
            
 

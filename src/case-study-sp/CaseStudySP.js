@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import './CaseStudy.css'
+import './CaseStudySP.css'
 import { saveAs } from "file-saver";
 import {
     Document,
@@ -9,18 +9,22 @@ import {
     HeadingLevel
 } from "docx";
 
-const CaseStudy = ({details}) => {
+const CaseStudySP = ({details}) => {
     const contentRef = useRef();
     const exceptList = ['Sno', 'Name']
-    const includeList = ['Patient Profile',	'Present Complaint','Vital Signs',
-                        'History of Present Illness', 'Past Medical History', 'Medications',
-                        'Allergies', 	'Family History', 	'Social History','Physical Exam',
-                        'Laboratory & Diagnostic Results',	'Symptom Evolution', 
-                        'Clinical Reasoning Challenges for Learners',	
-                        'Expected Learner Actions',	'Critical Actions Checklist', 	
-                        'Interprofessional Collaboration Opportunities',
-                        'Discussion Prompts for Learners',	'Debriefing Prompts','Adaptability Notes',
-                        'Simulation Format Suggestions', 'Teaching pearls', 'Reference']
+    const includeList = ['SP Profile', 'Case Objectives',
+                        'Scene Setup', 'SP Opening line',
+                        'Chief Complaint', 
+                        'History of Present Illness', 'Vital Signs',
+                        'Past Medical History', 'Medications',
+                        'Allergies', 	'Family History', 	'Social History',
+                        'Review of Systems', 'SP Behavior Cues',
+                        'Physical Exam Findings',
+                        'Laboratory & Diagnostic Results',
+                        'Expected Learner Actions',	'Critical Actions Checklist',
+                        'Discussion Question', 
+                        'Debriefing Prompts','Adaptability',
+                        'Reference']
 
     const downloadDoc = async () => {
         const lines = contentRef.current.innerText.split("\n");
@@ -87,4 +91,4 @@ const CaseStudy = ({details}) => {
 
 }
 
-export default CaseStudy
+export default CaseStudySP;

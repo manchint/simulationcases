@@ -48,17 +48,16 @@ const Home = () => {
     }
 
     const goToCategory = (category) => {
-        navigate('/category', { state: { category: category} })
+        navigate('/simulationcases/category', { state: { category: category} })
     }
     useEffect(() => {
         fetch('/data.xlsx')
             .then(res => res.arrayBuffer())
             .then(buffer => {
                 const workbook = XLSX.read(buffer, { type: 'array' });
-                const sheet = workbook.Sheets[workbook.SheetNames[0]];
-                const jsonData = XLSX.utils.sheet_to_json(sheet);
-
-                const names = jsonData.map(row => row["Category"]);
+                // const sheet = workbook.Sheets[workbook.SheetNames[0]];
+                
+                const names = Object.keys(workbook.Sheets)
                 setColumnData([...new Set(names)]);
             })
     }, []);
