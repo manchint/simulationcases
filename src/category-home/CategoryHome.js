@@ -19,7 +19,7 @@ const CategoryHome = () => {
 
 
     useEffect(() => {
-        fetch('/data.xlsx')
+        fetch(`${process.env.PUBLIC_URL}/data.xlsx`)
             .then(res => res.arrayBuffer())
             .then(buffer => {
                 const workbook = XLSX.read(buffer, { type: 'array' });
