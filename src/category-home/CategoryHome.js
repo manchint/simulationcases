@@ -63,7 +63,6 @@ const CategoryHome = () => {
                     ←
                 </span>
                 <h2 className="logo">{category}</h2>
-                {/* <h2 className="logo">{category}</h2> */}
                 <ul className="navItems">
                     {caseStudiesList.map((sno, index) => (
 
