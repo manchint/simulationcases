@@ -1,11 +1,12 @@
 import React from 'react';
 import './footer.css'
 
-const Footer = ({text, click}) => {
+const Footer = ({}) => {
 
     return (
         <div className="footer-container">
-            <p>In today’s healthcare education landscape, simulation has become a cornerstone of training. Whether you're guiding a medical student through their first code or helping a seasoned nurse refine critical decision-making, simulation empowers learning in a real-world way—without the real-world consequences.</p>
+            <p>© 2025 Sri Rakumari Mendu | Pulse Scenarios</p>
+            {/* <p>We’d love to hear from you—share your thoughts, questions, or feedback in the comments below.</p> */}
         </div>     
     )
 

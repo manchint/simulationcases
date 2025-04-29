@@ -1,0 +1,14 @@
+.mission-container {
+    align-items: center;
+    width: 100%;
+}
+
+.mission-content {
+    padding: 2px 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
+}
