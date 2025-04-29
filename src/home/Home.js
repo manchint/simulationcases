@@ -1,7 +1,7 @@
 import React, { useEffect, useState }  from "react";
 import * as XLSX from 'xlsx';
 import { useNavigate } from "react-router-dom";
-
+import Footer from "../footer/Footer";
 import Card from "../card/Card";
 import './home.css'
 
@@ -85,6 +85,7 @@ const Home = () => {
                 )}
             </div>
             ))}
+            <Footer />
         </div>
     )
 }
