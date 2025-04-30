@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/simulationcases/static/css/main.acb5e9a9.css",
+    "main.css": "/simulationcases/static/css/main.d8591b31.css",
     "main.js": "/simulationcases/static/js/main.64daaf1e.js",
     "static/js/453.29c8faff.chunk.js": "/simulationcases/static/js/453.29c8faff.chunk.js",
     "static/media/Ophthalmology.png": "/simulationcases/static/media/Ophthalmology.e19ba058409083b3b7a8.png",
@@ -18,12 +18,12 @@
     "static/media/Lungs.png": "/simulationcases/static/media/Lungs.55e82269a5af120cfa9b.png",
     "static/media/Obstetrics.png": "/simulationcases/static/media/Obstetrics.2dc3cce7bb2a4d82a541.png",
     "index.html": "/simulationcases/index.html",
-    "main.acb5e9a9.css.map": "/simulationcases/static/css/main.acb5e9a9.css.map",
+    "main.d8591b31.css.map": "/simulationcases/static/css/main.d8591b31.css.map",
     "main.64daaf1e.js.map": "/simulationcases/static/js/main.64daaf1e.js.map",
     "453.29c8faff.chunk.js.map": "/simulationcases/static/js/453.29c8faff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.acb5e9a9.css",
+    "static/css/main.d8591b31.css",
     "static/js/main.64daaf1e.js"
   ]
 }
