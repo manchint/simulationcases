@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../footer/Footer";
 import Card from "../card/Card";
 import './caseStudiesList.css'
+import Header from "../header/Header";
 
 const CaseStudiesList = () => {
     const navigate = useNavigate();
@@ -77,7 +78,8 @@ const CaseStudiesList = () => {
     }, [cards, columnData]);
 
     return (
-        <div>
+        <>
+            <Header val='CaseScenarios'/>
             {cardItems.length > 0 && cardItems.map((chunk, chunkIndex) => (
             <div className="card-container" key={chunkIndex}>
                 {chunk.map((item, index) =>
@@ -85,7 +87,8 @@ const CaseStudiesList = () => {
                 )}
             </div>
             ))}
-        </div>
+            <Footer />
+        </>
     )
 }
 

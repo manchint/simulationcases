@@ -1,3 +1,7 @@
 .card-container {
     display: flex;
 }
+
+.case-studies-list {
+    height: 100%;
+}

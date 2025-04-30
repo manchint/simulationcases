@@ -24,3 +24,8 @@
     font-weight: bold;
     border-bottom: 3px solid white;
 }
+
+.header-text {
+    font-size: larger;
+    font-weight: bolder;
+}

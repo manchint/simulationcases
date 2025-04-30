@@ -53,7 +53,7 @@ const CategoryHome = () => {
 
 
     const goToHome = () => {
-        navigate('/simulationcases/')
+        navigate('/simulationcases/casescenarios')
     }
 
     return (
