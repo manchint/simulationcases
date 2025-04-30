@@ -5,9 +5,7 @@ import {
     Document,
     Packer,
     Paragraph,
-    HeadingLevel,
-    TextRun,
-    BulletList
+    HeadingLevel
 } from "docx";
 
 const CaseStudy = ({details}) => {

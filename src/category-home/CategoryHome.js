@@ -45,7 +45,7 @@ const CategoryHome = () => {
 
     useEffect(() => {
         caseStudyByCategory.forEach((item) => {
-            if (item['Sno'] == selectedID) {
+            if (item['Sno'] === selectedID) {
                 setSelectedData(item)
             }
         })
@@ -78,7 +78,7 @@ const CategoryHome = () => {
                 </ul>
             </nav>
             <div className="content">
-                {category == 'sp' ? (
+                {category === 'sp' ? (
                     <CaseStudySP details={selectedData} />
                 ) :
                 (

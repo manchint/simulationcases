@@ -7,13 +7,13 @@ const Header = ({val}) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (activeTab == 'Home') {
+        if (activeTab === 'Home') {
             navigate('/simulationcases/home')
         }
-        if (activeTab == 'CaseScenarios') {
+        if (activeTab === 'CaseScenarios') {
             navigate('/simulationcases/casescenarios')
         }
-        if (activeTab == 'About') {
+        if (activeTab === 'About') {
             navigate('/simulationcases/about')
         }
     }, [activeTab])

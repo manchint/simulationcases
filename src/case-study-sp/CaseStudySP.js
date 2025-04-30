@@ -5,7 +5,6 @@ import {
     Document,
     Packer,
     Paragraph,
-    TextRun,
     HeadingLevel
 } from "docx";
 

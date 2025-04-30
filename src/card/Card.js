@@ -1,5 +1,4 @@
 import React from 'react';
-import test from './test.png'
 import './card.css'
 
 const Card = ({text, click}) => {
@@ -16,7 +15,7 @@ const Card = ({text, click}) => {
 
     return (
         <div className="card-tile" onClick={() => click(text)}>
-            <img src={getImage(text)} alt="Category Image" className="card-img"/>
+            <img src={getImage(text)} alt="Category" className="card-img"/>
             <h3 className="card-title">{text}</h3>
         </div>     
     )

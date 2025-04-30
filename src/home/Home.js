@@ -1,9 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import './home.css'
 import cover from '../images/cover.png'
 
-import CaseStudiesList from "../case-studies-list/CaseStudiesList";
-import About from '../about/About'
 import Header from '../header/Header';
 import Footer from "../footer/Footer";
 
