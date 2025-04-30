@@ -1,9 +1,9 @@
-.mission-container {
+.about-container {
     align-items: center;
     width: 100%;
 }
 
-.mission-content {
+.about-content {
     padding: 2px 15px;
     display: flex;
     flex-direction: column;

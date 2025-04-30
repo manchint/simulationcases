@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import './CaseStudySP.css'
+import './caseStudySP.css'
 import { saveAs } from "file-saver";
 import {
     Document,
@@ -19,6 +19,7 @@ const CaseStudySP = ({details}) => {
                         'Past Medical History', 'Medications',
                         'Allergies', 	'Family History', 	'Social History',
                         'Review of Systems', 'SP Behavior Cues',
+                        'Menstrual History',	'Obstetric History','Sexual History',
                         'Physical Exam Findings',
                         'Laboratory & Diagnostic Results',
                         'Expected Learner Actions',	'Critical Actions Checklist',

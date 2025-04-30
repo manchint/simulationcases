@@ -2,7 +2,7 @@ import React, { useEffect, useState }  from "react";
 import * as XLSX from 'xlsx';
 import CaseStudy from "../case-study/CaseStudy";
 import CaseStudySP from "../case-study-sp/CaseStudySP";
-import './CategoryHome.css'
+import './categoryHome.css'
 import { useLocation, useNavigate } from "react-router-dom";
 
 
@@ -58,7 +58,7 @@ const CategoryHome = () => {
 
     return (
         <div className="container">
-            <nav className="nav">
+            <nav className="navMain">
                 <span onClick={goToHome} className="back-arrow">
                     ←
                 </span>

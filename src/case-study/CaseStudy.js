@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
-import './CaseStudy.css'
+import './caseStudy.css'
 import { saveAs } from "file-saver";
 import {
     Document,
     Packer,
     Paragraph,
+    HeadingLevel,
     TextRun,
-    HeadingLevel
+    BulletList
 } from "docx";
 
 const CaseStudy = ({details}) => {
@@ -23,33 +24,53 @@ const CaseStudy = ({details}) => {
                         'Simulation Format Suggestions', 'Teaching pearls', 'Reference']
 
     const downloadDoc = async () => {
-        const lines = contentRef.current.innerText.split("\n");
+        const children = [];
 
-        const paragraphs = lines.map((line, index) => {
-        // Detect headings or normal paragraphs
-        if (line.startsWith("##")) {
-            return new Paragraph({
-            text: line.replace("##", "").trim(),
-            heading: HeadingLevel.HEADING_2,
+        includeList.forEach((col) => {
+            const content = details[col];
+            if (!content) return;
+
+            // Add heading
+            children.push(
+            new Paragraph({
+                text: col,
+                heading: HeadingLevel.HEADING_2,
+                spacing: { after: 200 },
+            })
+            );
+
+            const lines = content.split("\n").map(line => line.trim()).filter(Boolean);
+
+            if (lines.length > 1) {
+            // Add bullet list
+            lines.forEach(line => {
+                children.push(
+                new Paragraph({
+                    text: line,
+                    bullet: {
+                    level: 0,
+                    },
+                })
+                );
             });
-        } else if (line.startsWith("#")) {
-            return new Paragraph({
-            text: line.replace("#", "").trim(),
-            heading: HeadingLevel.HEADING_1,
-            });
-        } else {
-            return new Paragraph(line.trim());
-        }
+            } else {
+            // Add single paragraph
+            children.push(new Paragraph(lines[0]));
+            }
+
+            // Optional spacing after each section
+            children.push(new Paragraph("")); // blank line
         });
 
         const doc = new Document({
-        sections: [
+            sections: [
             {
-            properties: {},
-            children: paragraphs,
+                properties: {},
+                children,
             },
-        ],
+            ],
         });
+
         const blob = await Packer.toBlob(doc);
         saveAs(blob, "component.docx");
 
