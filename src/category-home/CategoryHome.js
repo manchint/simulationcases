@@ -1,8 +1,9 @@
 import React, { useEffect, useState }  from "react";
 import * as XLSX from 'xlsx';
+import './category.css';
 import CaseStudy from "../case-study/CaseStudy";
 import CaseStudySP from "../case-study-sp/CaseStudySP";
-import './categoryHome.css'
+
 import { useLocation, useNavigate } from "react-router-dom";
 
 
