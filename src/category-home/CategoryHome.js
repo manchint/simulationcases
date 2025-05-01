@@ -79,7 +79,7 @@ const CategoryHome = () => {
                 </ul>
             </nav>
             <div className="content">
-                {category === 'Standarized Patient Scenarios' ? (
+                {category === 'Standardized Patient Scenarios' ? (
                     <CaseStudySP details={selectedData} />
                 ) :
                 (
