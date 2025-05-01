@@ -9,12 +9,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/simulationcases/" element={<Home />} />
-        <Route path="/simulationcases/home" element={<Home />} />
-        <Route path="/simulationcases/about" element={<About />} />
-        <Route path="/simulationcases/casescenarios" element={<CaseStudiesList />} />
-        <Route path="/simulationcases/category" element={<CategoryHome />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/simulationcases/" element={<Home />} />
+        <Route exact path="/simulationcases/home" element={<Home />} />
+        <Route exact path="/simulationcases/about" element={<About />} />
+        <Route exact path="/simulationcases/casescenarios" element={<CaseStudiesList />} />
+        <Route exact path="/simulationcases/category" element={<CategoryHome />} />
       </Routes>
     </Router>
   );

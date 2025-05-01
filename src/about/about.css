@@ -12,3 +12,18 @@
 .text-center {
     text-align: center;
 }
+
+.founder-container {
+    display: flex;
+    align-items: stretch; /* Makes children the same height */
+    gap: 20px; 
+}
+
+.profile-img {
+    object-fit: cover; /* Keeps the image proportional without distortion */
+    max-width: 300px; /* Optional: set a fixed or max width */
+}
+
+.right-founder {
+    flex: 1; /* Take up remaining space */
+}

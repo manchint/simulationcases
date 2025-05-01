@@ -5,7 +5,9 @@ import {
     Document,
     Packer,
     Paragraph,
-    HeadingLevel
+    HeadingLevel,
+    TextRun,
+    BulletList
 } from "docx";
 
 const CaseStudy = ({details}) => {
@@ -31,9 +33,16 @@ const CaseStudy = ({details}) => {
             // Add heading
             children.push(
             new Paragraph({
-                text: col,
+                // text: col,
                 heading: HeadingLevel.HEADING_2,
                 spacing: { after: 200 },
+                children: [
+                    new TextRun({
+                        text: col,
+                        size: 36, // 18pt
+                        bold: true,
+                    }),
+                    ],
             })
             );
 
@@ -43,17 +52,41 @@ const CaseStudy = ({details}) => {
             // Add bullet list
             lines.forEach(line => {
                 children.push(
-                new Paragraph({
-                    text: line,
-                    bullet: {
-                    level: 0,
-                    },
-                })
+                    new Paragraph({
+                        bullet: {
+                        level: 0,
+                        },
+                        children: [
+                            new TextRun({
+                                text: line,
+                                size: 28, // 14pt (size is in half-points, so 14 * 2 = 28)
+                            }),
+                        ],
+                    })
+                    // new Paragraph({
+                    //     bullet: {
+                    //       level: 0,
+                    //     },
+                    //     children: [
+                    //       new TextRun({
+                    //         text: line,
+                    //         size: 28, // 14pt (size is in half-points, so 14 * 2 = 28)
+                    //       }),
+                    //     ],
+                    //   });
                 );
             });
             } else {
             // Add single paragraph
-            children.push(new Paragraph(lines[0]));
+                children.push(new Paragraph({
+                    children: [
+                        new TextRun({
+                            text: lines[0],
+                            size: 28, // 14pt (size is in half-points, so 14 * 2 = 28)
+                        }),
+                    ],
+                }))
+            // children.push(new Paragraph(lines[0]));
             }
 
             // Optional spacing after each section
@@ -70,7 +103,7 @@ const CaseStudy = ({details}) => {
         });
 
         const blob = await Packer.toBlob(doc);
-        saveAs(blob, "component.docx");
+        saveAs(blob, "casestudy.docx");
 
     }
     return (

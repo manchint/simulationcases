@@ -5,7 +5,8 @@ import {
     Document,
     Packer,
     Paragraph,
-    HeadingLevel
+    HeadingLevel,
+    TextRun
 } from "docx";
 
 const CaseStudySP = ({details}) => {
@@ -27,35 +28,86 @@ const CaseStudySP = ({details}) => {
                         'Reference']
 
     const downloadDoc = async () => {
-        const lines = contentRef.current.innerText.split("\n");
+        const children = [];
 
-        const paragraphs = lines.map((line, index) => {
-        // Detect headings or normal paragraphs
-        if (line.startsWith("##")) {
-            return new Paragraph({
-            text: line.replace("##", "").trim(),
-            heading: HeadingLevel.HEADING_2,
+        includeList.forEach((col) => {
+            const content = details[col];
+            if (!content) return;
+
+            // Add heading
+            children.push(
+            new Paragraph({
+                // text: col,
+                heading: HeadingLevel.HEADING_2,
+                spacing: { after: 200 },
+                children: [
+                    new TextRun({
+                      text: col,
+                      size: 36, // 18pt
+                      bold: true,
+                    }),
+                  ],
+            })
+            );
+
+            const lines = content.split("\n").map(line => line.trim()).filter(Boolean);
+
+            if (lines.length > 1) {
+            // Add bullet list
+            lines.forEach(line => {
+                children.push(
+                    new Paragraph({
+                        bullet: {
+                        level: 0,
+                        },
+                        children: [
+                            new TextRun({
+                                text: line,
+                                size: 28, // 14pt (size is in half-points, so 14 * 2 = 28)
+                            }),
+                        ],
+                    })
+                    // new Paragraph({
+                    //     bullet: {
+                    //       level: 0,
+                    //     },
+                    //     children: [
+                    //       new TextRun({
+                    //         text: line,
+                    //         size: 28, // 14pt (size is in half-points, so 14 * 2 = 28)
+                    //       }),
+                    //     ],
+                    //   });
+                );
             });
-        } else if (line.startsWith("#")) {
-            return new Paragraph({
-            text: line.replace("#", "").trim(),
-            heading: HeadingLevel.HEADING_1,
-            });
-        } else {
-            return new Paragraph(line.trim());
-        }
+            } else {
+            // Add single paragraph
+                children.push(new Paragraph({
+                    children: [
+                        new TextRun({
+                            text: lines[0],
+                            size: 28, // 14pt (size is in half-points, so 14 * 2 = 28)
+                        }),
+                    ],
+                }))
+            // children.push(new Paragraph(lines[0]));
+            }
+
+            // Optional spacing after each section
+            children.push(new Paragraph("")); // blank line
         });
 
         const doc = new Document({
-        sections: [
+            sections: [
             {
-            properties: {},
-            children: paragraphs,
+                properties: {},
+                children,
             },
-        ],
+            ],
         });
+
         const blob = await Packer.toBlob(doc);
-        saveAs(blob, "component.docx");
+        saveAs(blob, "casestudy.docx");
 
     }
     return (
