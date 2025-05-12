@@ -43,7 +43,7 @@ const CaseStudySP = ({details}) => {
                 children: [
                     new TextRun({
                       text: col,
-                      size: 36, // 18pt
+                      size: 36, // 14pt (size is in half-points, so 14 * 2 = 28)
                       bold: true,
                     }),
                   ],
