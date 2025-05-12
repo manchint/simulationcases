@@ -67,17 +67,6 @@ const CaseStudySP = ({details}) => {
                             }),
                         ],
                     })
-                    // new Paragraph({
-                    //     bullet: {
-                    //       level: 0,
-                    //     },
-                    //     children: [
-                    //       new TextRun({
-                    //         text: line,
-                    //         size: 28, // 14pt (size is in half-points, so 14 * 2 = 28)
-                    //       }),
-                    //     ],
-                    //   });
                 );
             });
             } else {
@@ -90,7 +79,6 @@ const CaseStudySP = ({details}) => {
                         }),
                     ],
                 }))
-            // children.push(new Paragraph(lines[0]));
             }
 
             // Optional spacing after each section
